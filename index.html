@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PHP</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header>
+      <h1>PHP</h1>
+      <nav>
+        <ul>
+          <li><a href="#petle">Pętle</a></li>
+          <li><a href="#if">Instrukcja if</a></li>
+          <li><a href="#switch">Instrukcja switch</a></li>
+          <li><a href="#zmienne">Zmienne</a></li>
+          <li><a href="#funkcje">Funkcje</a></li>
+          <li><a href="#laczenie">Łączenie z bazą danych</a></li>
+          <li><a href="#zapytania">Wysyłanie zapytań SQL</a></li>
+          <li><a href="#formularze">Pobieranie danych z formularzy</a></li>
+          <li><a href="#isset">Funkcja isset()</a></li>
+          <li><a href="#metody">Metody GET i POST</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main>
+      <section id="zmienne">
+        <h2>Zmienne</h2>
+        <p>
+          Zmienne w PHP służą do przechowywania danych. Nazwa zmiennej musi
+          rozpoczynać się znakiem dolara <code>$</code> i może zawierać litery,
+          cyfry oraz znaki podkreślenia.
+        </p>
+        <pre><code>$zmienna = "Wartość";
+    $liczba = 42;
+    $tablica = array("PHP", "JavaScript", "Python");</code></pre>
+        <p>
+          Zmienne w PHP nie wymagają deklaracji typu danych, ponieważ PHP jest
+          językiem słabo typowanym.
+        </p>
+      </section>
+
+      <section id="funkcje">
+        <h2>Funkcje</h2>
+        <p>
+          Funkcje to bloki kodu, które wykonują określone zadania. Można je
+          definiować i wywoływać w dowolnym miejscu w kodzie.
+        </p>
+
+        <h3>Definiowanie funkcji</h3>
+        <pre><code>function nazwaFunkcji($parametr1, $parametr2) {
+        // kod funkcji
+        return $wynik;
+    }</code></pre>
+        <p>
+          Funkcja może przyjmować dowolną liczbę parametrów i zwracać wartość za
+          pomocą instrukcji <code>return</code>.
+        </p>
+
+        <h3>Wywoływanie funkcji</h3>
+        <pre><code>$wynik = nazwaFunkcji($argument1, $argument2);</code></pre>
+        <p>
+          Funkcja jest wywoływana przez podanie jej nazwy i przekazanie
+          odpowiednich argumentów.
+        </p>
+
+        <h3>Funkcje anonimowe</h3>
+        <pre><code>$funkcjaAnonimowa = function($x, $y) {
+        return $x * $y;
+    };
+    echo $funkcjaAnonimowa(3, 4); // 12</code></pre>
+        <p>
+          Funkcje anonimowe (tzw. closure) nie mają nazwy i mogą być
+          przypisywane do zmiennych.
+        </p>
+      </section>
+      <section id="petle">
+        <h2>Pętle</h2>
+        <p>
+          Pętle pozwalają na wielokrotne wykonywanie tego samego bloku kodu.
+          Najczęściej używane pętle w PHP to <code>for</code>,
+          <code>while</code>, <code>do-while</code> oraz <code>foreach</code>.
+        </p>
+
+        <h3>Pętla for</h3>
+        <pre><code>for ($i = 0; $i < 5; $i++) {
+    echo $i . "&lt;br&gt;";
+}</code></pre>
+        <p>
+          Pętla <code>for</code> składa się z trzech części: inicjalizacji,
+          warunku i iteracji. Wykonuje się dopóki warunek jest prawdziwy.
+        </p>
+
+        <h3>Pętla while</h3>
+        <pre><code>$i = 0;
+while ($i < 5) {
+    echo $i . "&lt;br&gt;";
+    $i++;
+}</code></pre>
+        <p>
+          Pętla <code>while</code> wykonuje się dopóki warunek jest prawdziwy.
+        </p>
+
+        <h3>Pętla do-while</h3>
+        <pre><code>$i = 0;
+do {
+    echo $i . "&lt;br&gt;";
+    $i++;
+} while ($i < 5);</code></pre>
+        <p>
+          Pętla <code>do-while</code> wykonuje się co najmniej raz, a następnie
+          kontynuuje dopóki warunek jest prawdziwy.
+        </p>
+
+        <h3>Pętla foreach</h3>
+        <pre><code>$colors = array("red", "green", "blue");
+foreach ($colors as $color) {
+    echo $color . "&lt;br&gt;";
+}</code></pre>
+        <p>
+          Pętla <code>foreach</code> służy do iterowania po tablicach lub
+          obiektach.
+        </p>
+      </section>
+
+      <section id="if">
+        <h2>Instrukcja if</h2>
+        <p>
+          Instrukcja <code>if</code> pozwala na wykonywanie kodu tylko wtedy,
+          gdy spełniony jest określony warunek.
+        </p>
+        <pre><code>$x = 10;
+if ($x > 5) {
+    echo "Większe niż 5";
+} else {
+    echo "Mniejsze lub równe 5";
+}</code></pre>
+        <p>
+          Można również użyć instrukcji <code>elseif</code> do sprawdzenia wielu
+          warunków.
+        </p>
+      </section>
+
+      <section id="switch">
+        <h2>Instrukcja switch</h2>
+        <p>
+          Instrukcja <code>switch</code> pozwala na wybór jednego z wielu bloków
+          kodu do wykonania, w zależności od wartości wyrażenia.
+        </p>
+        <pre><code>$dzien = 2;
+switch ($dzien) {
+    case 1:
+        echo "Poniedziałek";
+        break;
+    case 2:
+        echo "Wtorek";
+        break;
+    default:
+        echo "Inny dzień";
+}</code></pre>
+        <p>
+          Instrukcja <code>break</code> powoduje wyjście z instrukcji
+          <code>switch</code> po wykonaniu odpowiedniego bloku kodu.
+        </p>
+      </section>
+      <section id="laczenie">
+        <h2>Łączenie się z bazą danych</h2>
+        <p>
+          W PHP, aby połączyć się z bazą danych, należy użyć odpowiednich
+          funkcji, takich jak <code>mysqli_connect()</code> lub
+          <code>PDO</code>.
+        </p>
+        <pre><code>$servername = "localhost";
+$username = "username";
+$password = "password";
+$dbname = "database_name";
+
+// Tworzenie połączenia
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Sprawdzenie połączenia
+if ($conn->connect_error) {
+    die("Połączenie nie powiodło się: " . $conn->connect_error);
+}
+echo "Połączono z bazą danych!";</code></pre>
+      </section>
+      <section id="zapytania">
+        <h2>Wysyłanie zapytań SQL</h2>
+        <p>
+          Po nawiązaniu połączenia z bazą danych można wysyłać zapytania SQL za
+          pomocą funkcji <code>mysqli_query()</code> lub metod obiektu
+          <code>PDO</code>.
+        </p>
+        <pre><code>// Zapytanie SELECT
+$sql = "SELECT * FROM users";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    // Wyświetlanie danych z każdego wiersza
+    while($row = $result->fetch_assoc()) {
+        echo "id: " . $row["id"]. " - Name: " . $row["username"]. "&lt;br&gt;";
+    }
+} else {
+    echo "Brak wyników";
+}
+
+// Zapytanie INSERT
+$sql = "INSERT INTO users (username, email) VALUES ('john_doe', 'john@example.com')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Nowy rekord został utworzony";</code></pre>
+      </section>
+      <section id="formularze">
+        <h2>Pobieranie danych z formularzy</h2>
+        <p>
+          Aby pobrać dane z formularza HTML, można użyć superglobalnych
+          zmiennych <code>$_GET</code> lub <code>$_POST</code>, w zależności od
+          użytej metody.
+        </p>
+        <pre><code>&lt;form method="post" action="&lt;?php echo $_SERVER['PHP_SELF'];?&gt;"&gt;
+  Imię: &lt;input type="text" name="imie"&gt;&lt;br&gt;
+  Nazwisko: &lt;input type="text" name="nazwisko"&gt;&lt;br&gt;
+  &lt;input type="submit" name="submit" value="Wyślij"&gt;
+&lt;/form&gt;
+
+&lt;?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $imie = $_POST['imie'];
+    $nazwisko = $_POST['nazwisko'];
+    echo "Witaj, " . $imie . " " . $nazwisko . "!";
+}
+?&gt;</code></pre>
+      </section>
+      <section id="isset">
+        <h2>Funkcja isset()</h2>
+        <p>
+          Funkcja <code>isset()</code> służy do sprawdzania, czy zmienna została
+          zainicjowana i nie jest <code>null</code>.
+        </p>
+        <pre><code>&lt;?php
+$zmienna = "Wartość";
+if (isset($zmienna)) {
+    echo "Zmienna jest zainicjowana";
+} else {
+    echo "Zmienna nie jest zainicjowana";
+}
+?&gt;</code></pre>
+      </section>
+      <section id="metody">
+        <h2>Metody GET i POST</h2>
+        <p>
+          <code>GET</code> i <code>POST</code> to dwie główne metody przesyłania
+          danych w formularzach HTML.
+        </p>
+        <ul>
+          <li>
+            <code>GET</code>: Dane są dołączane do adresu URL i widoczne w pasku
+            przeglądarki. Zalecane dla mniejszych ilości danych.
+          </li>
+          <li>
+            <code>POST</code>: Dane są przesyłane w treści żądania HTTP i nie są
+            widoczne w adresie URL. Zalecane dla większych ilości danych lub
+            poufnych informacji.
+          </li>
+        </ul>
+      </section>
+    </main>
+    <footer>
+      <p>
+        ihavekids@ilovehotsingle.mom | ewentualnie discord: programmingdumpster
+        <br />
+        <a href="https://jspedia.vercel.app/">JSPedia | INF03 </a>
+      </p>
+    </footer>
+  </body>
+</html>
